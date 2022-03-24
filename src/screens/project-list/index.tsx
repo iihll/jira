@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { stringify } from "qs";
 import { clearObject, useDebounce, useMount } from "utils";
 
-const apiUrl = process.env.REACT_APP_API_URI;
+const apiUrl = process.env.REACT_APP_API_URL;
 
 export const ProjectListScreen = () => {
   const [users, setUsers] = useState([]);
@@ -12,7 +12,7 @@ export const ProjectListScreen = () => {
     name: "",
     personId: "",
   });
-  const debouncedParam = useDebounce(param, 2000);
+  const debouncedParam = useDebounce(param, 200);
   const [list, setList] = useState([]);
 
   useEffect(() => {
