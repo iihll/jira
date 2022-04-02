@@ -1,5 +1,4 @@
 import { useAuth } from 'context/auth-context'
-import { FormEvent } from 'react'
 import { Form, Input, Button } from 'antd'
 
 // interface Base {
@@ -16,8 +15,6 @@ import { Form, Input, Button } from 'antd'
 // const a: Advance = { id: 1, name: 'jack' }
 // const a = { id: 1, name: 'jack' }
 // test(a)
-
-const apiUrl = process.env.REACT_APP_API_URL
 
 export const RegisterScreen = () => {
   const { register, user } = useAuth()

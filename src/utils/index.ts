@@ -1,52 +1,52 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react'
 
-export const isFalsy = (value: unknown) => (value === 0 ? false : !value);
+export const isFalsy = (value: unknown) => (value === 0 ? false : !value)
 
 export const clearObject = (object: object) => {
-  const result: any = { ...object };
+  const result: any = { ...object }
   Object.keys(result).forEach((key) => {
-    const value = result[key];
+    const value = result[key]
     if (isFalsy(value)) {
-      delete result[key];
+      delete result[key]
     }
-  });
+  })
 
-  return result;
-};
+  return result
+}
 
 export const useMount = (callback: () => void) => {
   useEffect(() => {
-    callback();
-  }, []);
-};
+    callback()
+  }, [callback])
+}
 
 export const useDebounce = <V>(value: V, delay?: number) => {
-  const [debouncedValue, setDebouncedValue] = useState(value);
+  const [debouncedValue, setDebouncedValue] = useState(value)
 
   useEffect(() => {
     // 在 value 变化时设置定时器
-    const timeout = setTimeout(() => setDebouncedValue(value), delay);
+    const timeout = setTimeout(() => setDebouncedValue(value), delay)
 
     // 每次在上一个 useEffect 处理完以后再执行
-    return () => clearTimeout(timeout);
-  }, [value, delay]);
+    return () => clearTimeout(timeout)
+  }, [value, delay])
 
-  return debouncedValue;
-};
+  return debouncedValue
+}
 
 export const useArray = <T>(initialArray: T[]) => {
-  const [value, setValue] = useState(initialArray);
+  const [value, setValue] = useState(initialArray)
   const add = (item: T) => {
-    setValue([...value, item]);
-  };
+    setValue([...value, item])
+  }
   const clear = () => {
-    setValue([]);
-  };
+    setValue([])
+  }
   const removeIndex = (index: number) => {
-    const copy = [...value];
-    copy.splice(index, 1);
-    setValue(copy);
-  };
+    const copy = [...value]
+    copy.splice(index, 1)
+    setValue(copy)
+  }
 
   return {
     value,
@@ -54,5 +54,5 @@ export const useArray = <T>(initialArray: T[]) => {
     add,
     clear,
     removeIndex,
-  };
-};
+  }
+}

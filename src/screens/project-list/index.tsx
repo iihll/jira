@@ -16,7 +16,7 @@ export const ProjectListScreen = () => {
 
   useEffect(() => {
     client('projects', { data: clearObject(debouncedParam) }).then(setList)
-  }, [debouncedParam])
+  }, [client, debouncedParam])
 
   useMount(() => {
     client('users').then(setUsers)

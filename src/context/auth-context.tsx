@@ -19,15 +19,14 @@ const bootstarpUser = async () => {
   return user
 }
 
-const AuthContext = createContext<
-  | {
-      user: User | null
-      login: (form: AuthForm) => Promise<void>
-      register: (form: AuthForm) => Promise<void>
-      logout: () => Promise<void>
-    }
-  | undefined
->(undefined)
+type AuthContextType = {
+  user: User | null
+  login: (form: AuthForm) => Promise<void>
+  register: (form: AuthForm) => Promise<void>
+  logout: () => Promise<void>
+}
+
+const AuthContext = createContext<AuthContextType | undefined>(undefined)
 AuthContext.displayName = 'AuthContext'
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {

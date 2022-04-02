@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import { Input, Select } from 'antd'
 
 export interface User {

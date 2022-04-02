@@ -16,8 +16,6 @@ import { FormEvent } from 'react'
 // const a = { id: 1, name: 'jack' }
 // test(a)
 
-const apiUrl = process.env.REACT_APP_API_URL
-
 export const LoginScreen = () => {
   const { login, user } = useAuth()
 
